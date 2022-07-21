@@ -1,9 +1,10 @@
 const inputNameElement = document.getElementById('user-name');
 const inputKmElement = document.querySelector('input[name="user-km"]');
 const selectAgeElement = document.querySelector('select[name="user-age"]');
+const sectionTicketElement = document.querySelector('.ticket');
 const tableElement = document.querySelector('.ticket-info');
 
-console.log(tableElement);
+console.dir(sectionTicketElement);
 
 const buttonElement = document.querySelector('button');
 
@@ -12,8 +13,11 @@ const DISCOUNT_UNDER_18 = 0.2;
 const DISCOUNT_OVER_65 = 0.4;
 
 buttonElement.addEventListener('click', function () {
+    const userName = inputNameElement.value;
+    const userKm = parseFloat(inputKmElement.value);
+    
     // calcolare il prezzo del biglietto base
-    const basePrice = parseFloat(inputKmElement.value) * PRICE_PER_KM;
+    const basePrice = userKm * PRICE_PER_KM;
     let finalPrice;
     let ticketTipe;
 
@@ -27,13 +31,15 @@ buttonElement.addEventListener('click', function () {
         ticketTipe = 'Biglietto Ridotto over 65';
     } else {
         finalPrice = basePrice;
-        ticketTipe = 'Biglietto Standard'
+        ticketTipe = 'Biglietto Standard';
     }
 
+    sectionTicketElement.style.display = 'block';
+
     tableElement.innerHTML = `
-    <td>${inputNameElement.value}</td>
+    <td>${userName}</td>
     <td>${ticketTipe}</td>
     <td>5</td>
     <td>92911</td>
-    <td>${finalPrice} €</td>`;
+    <td>${finalPrice.toFixed(2)} €</td>`;
 });
