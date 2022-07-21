@@ -4,16 +4,96 @@
     margin: 0;
 }
 
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
     background-color: #f2f2f2;
 }
 
+h1, h2 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    color: crimson;
+}
+
+button {
+    background-color: transparent;
+    color: currentColor;
+    border: none;
+}
+
+label, input, select {
+    display: block;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    color: crimson;
+}
+
+input, select {
+    padding: 0.5rem;
+    border: 1px solid crimson;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+}
+
+.button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: crimson;
+    background-color: #f2f2f2;
+    border-radius: 0.5rem;
+}
+
+.button:first-child {
+    margin-right: 1rem;
+}
+
+/* LAYOUT */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1.5rem;
+    padding: 0 1.5rem;
 }
 
+section {
+    padding: 1.5rem 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.col:last-child {
+    flex-basis: 100%;
+}
+
+/* FORM SECTION */
+form {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+}
+
+.input-wrapper,
+.button-wrapper {
+    text-align: center;
+}
+
+/* TICKET SECTION */
 .ticket {
     display: none;
 }
